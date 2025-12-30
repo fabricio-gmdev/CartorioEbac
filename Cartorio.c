@@ -7,6 +7,11 @@ int registro()//função responsável por cadastrar usuários no sistema
 {
 	setlocale(LC_ALL, "Portuguese");//definindo idioma
 	
+	int continuar;//variável para função de continuar registrando
+	
+	do
+	{
+		
 	//início da criação de variáveis/string
 	char arquivo[100];
 	char cpf[100];
@@ -62,7 +67,12 @@ int registro()//função responsável por cadastrar usuários no sistema
 	file = fopen(arquivo, "a");
 	fprintf(file, "\n");
 	fclose(file);
-		
+	
+	printf("\nRegistro concluído com sucesso.Deseja cadastrar outro aluno?\n\n(1-Sim/2-Não): ");
+	scanf("%d", &continuar);
+	system("cls");//limpa o texto da tela para o próximo registro
+}while (continuar == 1);//a fimção registro deve continuar enquanto a opção do usuário for 1
+
 	system("pause");
 }
 
