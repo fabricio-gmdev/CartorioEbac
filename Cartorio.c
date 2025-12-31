@@ -142,61 +142,78 @@ int main ()//início da função principal
 	
 	int opcao=0;//declara uma variável do tipo inteira chamada opcao e a inicia com o valor 0 
 	int x=1;x>=1;
+	char senhadigitada[10]="a";//criando variáveis para a senha
+	int comparacao;//comparação de igualdade dentro da memória
 	
-	for (x=1;x>=1;x++)//laço para manter o menu ativo até que o usuário escolha encerrar
+	setlocale(LC_ALL, "Portuguese");
+	printf("\tCartório da EBAC\n\n");
+	printf("Login de administrador\n\nDigite sua senha: ");
+	scanf("%s",senhadigitada);
 	
+	comparacao = strcmp(senhadigitada, "admin");//comparação de memória para a entrada admin
+	
+	if(comparacao == 0)//pois esse é o resultado zero quando a memória da entrada for igual a de admin salvo no sistema
 	{
 	
-	system ("cls");
-		
-	setlocale(LC_ALL, "Portuguese");//definindo idioma
 	
-	printf("\tCartório da EBAC\n\n");//início do menu
-	printf("Escolha a opção desejada do menu\n\n");
-	printf("\t1-Registrar Alunos\n");
-	printf("\t2-Consultar Alunos\n");
-	printf("\t3-Deletar Registro\n");
-	printf("\t4-Sair do Programa\n\n");
-	printf("Opção: ");//fim do menu e local de definição de opção
-
-	scanf("%d" ,&opcao);//armazenamento da escolha do usuário
+		for (x=1;x>=1;x++)//laço para manter o menu ativo até que o usuário escolha encerrar
 	
-	system ("cls");//responsável por limpar a tela
-	
-	switch(opcao)//responsável por chamar as funções criadas anteriormente com base na entrada inserida pelo usuário
 		{
-			case 1:
-			registro();
-			break;
-		
-			case 2:
-			consulta();
-			break;
-		
-			case 3:
-			deletar();
-			break;
-			
-			case 4:
-			sair();
-			break;
-			
-			default://opção caso a escolha do usuário seja diferente das programadas anteriormente
-			printf("Essa opção não está disponível\n");
-			printf("Retorne ao Menu de opções\n\n");
-			system ("pause");
-			break;	
-		}
 	
-	if (opcao==4)// responsável por ativar a quebra do laço anterior se a entrada for 4 e para o usuário encerrar o sistema
-	{
+		system ("cls");
 		
-		system("cls");
-		printf("Criado por Fabrício Muniz Torres de Oliveira\n");
-		printf("Todos os direitos reservados ao criador\n");
-		system("pause");
-		break;
+		setlocale(LC_ALL, "Portuguese");//definindo idioma
+	
+		printf("\tCartório da EBAC\n\n");//início do menu
+		printf("Escolha a opção desejada do menu\n\n");
+		printf("\t1-Registrar Alunos\n");
+		printf("\t2-Consultar Alunos\n");
+		printf("\t3-Deletar Registro\n");
+		printf("\t4-Sair do Programa\n\n");
+		printf("Opção: ");//fim do menu e local de definição de opção
+
+		scanf("%d" ,&opcao);//armazenamento da escolha do usuário
+	
+		system ("cls");//responsável por limpar a tela
+	
+		switch(opcao)//responsável por chamar as funções criadas anteriormente com base na entrada inserida pelo usuário
+			{
+				case 1:
+				registro();
+				break;
+		
+				case 2:
+				consulta();
+				break;
+		
+				case 3:
+				deletar();
+				break;
+			
+				case 4:
+				sair();
+				break;
+			
+				default://opção caso a escolha do usuário seja diferente das programadas anteriormente
+				printf("Essa opção não está disponível\n");
+				printf("Retorne ao Menu de opções\n\n");
+				system ("pause");
+				break;	
+			}
+	
+		if (opcao==4)// responsável por ativar a quebra do laço anterior se a entrada for 4 e para o usuário encerrar o sistema
+			{
+		
+			system("cls");
+			printf("Criado por Fabrício Muniz Torres de Oliveira\n");
+			printf("Todos os direitos reservados ao criador\n");
+			system("pause");
+			break;
+			}
+	
+		}//fim do laço
 	}
-	
-	}//fim do laço
+	else
+	system("cls");
+	printf("Senha incorreta!");
 }
